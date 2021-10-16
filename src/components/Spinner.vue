@@ -6,12 +6,17 @@
 </template>
 
 <style>
-.cube1,
-.cube2 {
+.reduce-motion .cube1,
+.reduce-motion .cube2 {
+	display: none;
+}
+
+.full-motion .cube1,
+.full-motion .cube2 {
 	animation: cubemove 1.8s infinite ease-in-out;
 }
 
-.cube2 {
+.full-motion .cube2 {
 	animation-delay: -0.9s;
 }
 
