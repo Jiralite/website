@@ -1,22 +1,27 @@
 <template>
-	<div class="relative h-10 w-10 my-60 mx-auto">
+	<div v-if="!isReducedMotion" class="relative h-10 w-10 my-60 mx-auto">
 		<div class="cube1 bg-discord-blurple-560 h-4 w-4 absolute"></div>
 		<div class="cube2 bg-discord-blurple-560 h-4 w-4 absolute"></div>
 	</div>
 </template>
 
-<style>
-.reduce-motion .cube1,
-.reduce-motion .cube2 {
-	display: none;
-}
+<script>
+import { isReducedMotion } from '~/util/ReducedMotion';
 
-.full-motion .cube1,
-.full-motion .cube2 {
+export default {
+	data() {
+		return { isReducedMotion };
+	},
+};
+</script>
+
+<style>
+.cube1,
+.cube2 {
 	animation: cubemove 1.8s infinite ease-in-out;
 }
 
-.full-motion .cube2 {
+.cube2 {
 	animation-delay: -0.9s;
 }
 
