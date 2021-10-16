@@ -180,6 +180,24 @@
 								<li>
 									<SwitchGroup>
 										<div class="flex justify-between px-2">
+											<SwitchLabel class="mr-4 dark:text-gray-200">Reduced Motion</SwitchLabel>
+											<Switch
+												v-model="isReducedMotion"
+												class="relative inline-flex h-6 items-center rounded-full w-11 focus:outline-none"
+												:class="isReducedMotion ? 'bg-discord-blurple-500' : 'bg-gray-500'"
+												@click="toggleReducedMotion(isReducedMotion)"
+											>
+												<span
+													class="inline-block w-4 h-4 bg-white rounded-full transition transform-gpu z-20"
+													:class="isReducedMotion ? 'translate-x-6' : 'translate-x-1'"
+												></span>
+											</Switch>
+										</div>
+									</SwitchGroup>
+								</li>
+								<li>
+									<SwitchGroup>
+										<div class="flex justify-between px-2">
 											<SwitchLabel class="mr-4 dark:text-gray-200">Show privates</SwitchLabel>
 											<Switch
 												v-model="isShowPrivates"
@@ -362,6 +380,7 @@ import { onClickOutside, useBreakpoints, breakpointsTailwind, whenever } from '@
 
 import { useStore } from '~/store';
 import MainSource from '~/data/MainSource';
+import { isReducedMotion, toggleReducedMotion } from '~/util/ReducedMotion';
 import { isShowPrivates } from '~/util/showPrivates';
 
 import {

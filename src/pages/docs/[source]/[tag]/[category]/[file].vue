@@ -25,6 +25,7 @@ import { useRoute } from 'vue-router';
 
 import { useStore } from '~/store';
 import { markdown } from '~/util/markdown';
+import { isReducedMotion } from '~/util/ReducedMotion';
 
 import SourceButton from '~/components/SourceButton.vue';
 
@@ -53,7 +54,7 @@ const html = computed(() => {
 onMounted(() => {
 	const containerElement = document.getElementById('container');
 	if (containerElement && containerElement.scrollTop > 200) {
-		containerElement.scrollTo({ top: 0, behavior: 'smooth' });
+		containerElement.scrollTo({ top: 0, behavior: isReducedMotion.value ? undefined : 'smooth' });
 	}
 });
 </script>
